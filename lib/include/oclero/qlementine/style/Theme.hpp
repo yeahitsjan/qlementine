@@ -38,6 +38,8 @@ public: // Ctor.
 
   static std::optional<Theme> fromJsonPath(const QString& jsonPath);
   static std::optional<Theme> fromJsonDoc(const QJsonDocument& jsonDoc);
+  static Theme makeLight();
+  static Theme makeDark();
 
   Theme(Theme const& other) = default;
   Theme(Theme&& other) noexcept = default;
@@ -187,6 +189,10 @@ public: // Values.
   int tabBarPaddingTop{ 4 };
   int tabBarTabMaxWidth{ 0 };
   int tabBarTabMinWidth{ 0 };
+
+  bool fontSizeWasOverriden{ false };
+  bool fontSizeMonospaceWasOverriden{ false };
+  bool fontSizeS1WasOverriden{ false };
 
   QFont fontRegular;
   QFont fontBold;

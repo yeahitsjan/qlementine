@@ -435,7 +435,7 @@ struct SandboxWindow::Impl {
     }
     {
       auto* label = new Label(windowContent);
-      label->setText(QStringLiteral("Comment/Uncomment lines in SandbowWindow.cpp to show/hide desired widgets."));
+      label->setText(QStringLiteral("Comment/Uncomment lines in SandboxWindow.cpp to show/hide desired widgets."));
       label->setRole(TextRole::Caption);
       windowContentLayout->addWidget(label);
     }
@@ -1876,7 +1876,7 @@ SandboxWindow::SandboxWindow(ThemeManager* themeManager, QWidget* parent)
     // Uncomment the line to show the corresponding widget.
     // _impl->setupUI_label();
     // _impl->setupUI_button();
-    _impl->setupUI_buttonVariants();
+    // _impl->setupUI_buttonVariants();
     // _impl->setupUI_checkbox();
     // _impl->setupUI_radioButton();
     // _impl->setupUI_commandLinkButton();
