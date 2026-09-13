@@ -1716,7 +1716,8 @@ void QlementineStyle::drawControl(ControlElement ce, const QStyleOption* opt, QP
         const auto textW = fm.boundingRect(optToolButton->rect, Qt::AlignCenter, optToolButton->text).width();
         const auto textH = fm.boundingRect(optToolButton->rect, Qt::AlignCenter, optToolButton->text).height();
 
-        int availableW, availableX;
+        auto availableW = 0;
+        auto availableX = 0;
         if (buttonStyle != Qt::ToolButtonTextUnderIcon) {
           availableW = centered ? std::min(fgRect.width(), iconSize.width() + spacing + textW) : fgRect.width();
           availableX = centered ? fgRect.x() + (fgRect.width() - availableW) / 2 : fgRect.x();
