@@ -443,10 +443,9 @@ struct SandboxWindow::Impl {
 
   void setupUI_button() {
     auto* button = new QPushButton(windowContent);
-    button->setText(QStringLiteral("Button with a very long text that can be elided"));
+    button->setText(QStringLiteral("Button"));
     button->setIcon(getTestQIcon());
-    button->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
-    button->setDefault(true);
+    button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     windowContentLayout->addWidget(button);
   }
 
@@ -1877,7 +1876,7 @@ SandboxWindow::SandboxWindow(ThemeManager* themeManager, QWidget* parent)
     // Uncomment the line to show the corresponding widget.
     // _impl->setupUI_label();
     // _impl->setupUI_button();
-    // _impl->setupUI_buttonVariants();
+    _impl->setupUI_buttonVariants();
     // _impl->setupUI_checkbox();
     // _impl->setupUI_radioButton();
     // _impl->setupUI_commandLinkButton();

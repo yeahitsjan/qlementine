@@ -2430,7 +2430,14 @@ QRect QlementineStyle::subElementRect(SubElement se, const QStyleOption* opt, co
         const auto hasText = !optButton->text.isEmpty();
         const auto hasMenu = optButton->features.testFlag(QStyleOptionButton::HasMenu);
         const auto padding = pixelMetric(PM_ButtonMargin);
-        const auto [paddingLeft, paddingRight] = getHPaddings(hasIcon, hasText, hasMenu, padding);
+        auto [paddingLeft, paddingRight] = getHPaddings(hasIcon, hasText, hasMenu, padding);
+
+        // Keep visual balance for text+icon QPushButton without menu indicator.
+        if (hasText && hasIcon && !hasMenu) {
+          paddingLeft = padding * 2;
+          paddingRight = padding * 2;
+        }
+
         if (paddingLeft + paddingRight >= opt->rect.width()) {
           return opt->rect;
         }
@@ -3809,7 +3816,14 @@ QSize QlementineStyle::sizeFromContents(
         const auto maxW = maxSize.width();
         const auto maxH = maxSize.height();
         const auto padding = pixelMetric(PM_ButtonMargin, opt, widget);
-        const auto [paddingLeft, paddingRight] = getHPaddings(hasIcon, hasText, hasMenu, padding);
+        auto [paddingLeft, paddingRight] = getHPaddings(hasIcon, hasText, hasMenu, padding);
+
+        // Keep visual balance for text+icon QPushButton without menu indicator.
+        if (hasText && hasIcon && !hasMenu) {
+          paddingLeft = padding * 2;
+          paddingRight = padding * 2;
+        }
+
         const auto defaultH = _impl->theme.controlHeightLarge;
         auto w = std::max(defaultH, contentWidth + paddingLeft + paddingRight);
         if (maxW != QWIDGETSIZE_MAX && maxW > -1) {
