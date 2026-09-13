@@ -1001,7 +1001,7 @@ struct SandboxWindow::Impl {
     auto* toolButton = new QToolButton(toolbar);
     toolButton->setIcon(getTestQIcon());
     toolButton->setText(QStringLiteral("Button with a very long text that can be elided"));
-    toolButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    toolButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     toolButton->setCheckable(false);
     toolButton->setChecked(false);
 
@@ -1028,7 +1028,6 @@ struct SandboxWindow::Impl {
     toolbar->setMovable(false);
     toolbar->setFloatable(false);
     toolbar->setIconSize(QSize(16, 16));
-    toolbar->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonFollowStyle);
 
     // Button 1: Icon only
     {
@@ -1102,6 +1101,14 @@ struct SandboxWindow::Impl {
       toolButton->setMenu(subMenu);
       subMenu->addAction(icon, QStringLiteral("Sub Action 1"));
       subMenu->addAction(icon, QStringLiteral("Sub Action 2"));
+      toolbar->addWidget(toolButton);
+    }
+    // Button 7: Icon and Text, vertical.
+    {
+      auto* toolButton = new QToolButton(toolbar);
+      toolButton->setIcon(icon);
+      toolButton->setText(QStringLiteral("Button"));
+      toolButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
       toolbar->addWidget(toolButton);
     }
   }

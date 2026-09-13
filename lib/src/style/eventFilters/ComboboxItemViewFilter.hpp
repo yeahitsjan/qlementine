@@ -23,7 +23,8 @@ inline bool isDefaultItemDelegate(const QAbstractItemDelegate* delegate) {
   if (!delegate)
     return true;
   const auto* meta = delegate->metaObject();
-  return meta == &QStyledItemDelegate::staticMetaObject || meta == &QItemDelegate::staticMetaObject;
+  return meta == &QStyledItemDelegate::staticMetaObject || meta == &QItemDelegate::staticMetaObject
+         || QByteArray(meta->className()) == "QComboMenuDelegate";
 }
 
 // Event filter for the item view in the QComboBox's popup.

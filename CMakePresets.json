@@ -52,7 +52,7 @@
       "toolset": "host=x64",
       "binaryDir": "${sourceDir}/_build",
       "cacheVariables": {
-        "CMAKE_PREFIX_PATH": "C:/Qt/6.10.3/msvc2022_64",
+        "CMAKE_PREFIX_PATH": "C:/Qt/6.11.2/msvc2022_64",
         "QLEMENTINE_SANDBOX": true,
         "QLEMENTINE_SHOWCASE": true
       },
