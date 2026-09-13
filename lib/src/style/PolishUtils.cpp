@@ -85,6 +85,8 @@ void polishCommonWidget(QWidget* widget) {
   // Hijack the default focus policy for buttons.
   if (shouldHaveTabFocus(widget)) {
     widget->setFocusPolicy(Qt::TabFocus);
+  } else if (shouldHaveNoFocus(widget)) {
+    widget->setFocusPolicy(Qt::NoFocus);
   }
 }
 

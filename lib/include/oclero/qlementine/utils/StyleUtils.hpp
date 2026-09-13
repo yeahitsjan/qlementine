@@ -26,6 +26,9 @@ QLEMENTINE_EXPORT bool shouldHaveExternalFocusFrame(const QWidget* w);
 /// Should the widget be focusable only with Tab.
 QLEMENTINE_EXPORT bool shouldHaveTabFocus(const QWidget* w);
 
+/// Should the widget not be focusable.
+QLEMENTINE_EXPORT bool shouldHaveNoFocus(const QWidget* w);
+
 /// Should we prevent the widget to resize vertically.
 QLEMENTINE_EXPORT bool shouldNotBeVerticallyCompressed(const QWidget* w);
 
