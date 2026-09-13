@@ -419,6 +419,7 @@ struct ShowcaseWindow::Impl {
 
       themeSwitch = new oclero::qlementine::Switch(toolBar);
       themeSwitch->setToolTip("Switch between light and dark theme");
+      themeSwitch->setFocusPolicy(Qt::FocusPolicy::NoFocus);
       QObject::connect(themeSwitch, &oclero::qlementine::Switch::clicked, themeSwitch, [this](auto checked) {
         setTheme(checked ? "Dark" : "Light");
       });

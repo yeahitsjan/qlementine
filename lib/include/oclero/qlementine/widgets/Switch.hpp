@@ -54,6 +54,7 @@ protected:
 private:
   void setupAnimation();
   void startAnimation();
+  void refreshThemeMetrics();
   QRect getSwitchRect() const;
 
   const QColor& getBgColor() const;
